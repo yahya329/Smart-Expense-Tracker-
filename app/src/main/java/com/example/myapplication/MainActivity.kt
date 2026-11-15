@@ -1,47 +1,35 @@
+
 package com.example.myapplication
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.example.myapplication.data.SettingsRepository
+import com.example.myapplication.ui.BudgetScreen
+import com.example.myapplication.viewmodel.BudgetViewModel
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var budgetScreen: BudgetScreen
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+        setContentView(R.layout.activity_budget)
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
+        val settingsRepository = SettingsRepository(this)
+
+        val budgetViewModel = BudgetViewModel(
+            settingsRepository
+        )
+
+        budgetScreen = BudgetScreen(
+            activity = this,
+            viewModel = budgetViewModel
+        )
+
+        budgetScreen.setup()
+
+        // Expenses will be connected to the Transactions feature later.
+        budgetScreen.updateSpentAmount(0.0)
     }
 }

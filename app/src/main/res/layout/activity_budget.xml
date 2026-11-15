@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F6FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Budget Management"
+            android:textColor="#202124"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manage your monthly spending"
+            android:textColor="#757575"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Set your monthly budget"
+                android:textColor="#202124"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etMonthlyBudget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:hint="Example: 5000"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:padding="12dp"
+                android:textColor="#202124"
+                android:textColorHint="#888888" />
+
+            <Button
+                android:id="@+id/btnSaveBudget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Save Budget" />
+
+            <TextView
+                android:id="@+id/tvSaveMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:layout_marginTop="20dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This month's overview"
+                android:textColor="#202124"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="18dp" />
+
+            <TextView
+                android:id="@+id/tvMonthlyBudget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Monthly limit: 0.00 EGP"
+                android:textColor="#202124"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvTotalSpent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amount spent: 0.00 EGP"
+                android:textColor="#202124"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvRemainingBudget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Remaining: 0.00 EGP"
+                android:textColor="#219653"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="18dp" />
+
+            <ProgressBar
+                android:id="@+id/budgetProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:max="100"
+                android:progress="0"
+                android:progressTint="#219653"
+                android:progressBackgroundTint="#DDDDDD" />
+
+            <TextView
+                android:id="@+id/tvProgressPercentage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0% used"
+                android:textColor="#555555"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tvBudgetWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#D32F2F"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="14dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
